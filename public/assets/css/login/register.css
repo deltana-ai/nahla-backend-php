@@ -1,0 +1,111 @@
+body {
+  font-family: 'Tajawal', sans-serif;
+  margin: 0;
+  background: #f9f9f9;
+  direction: rtl;
+  color: #333;
+}
+
+.signup-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.step-indicator {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.step {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  color: #a48bb3;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.step.active {
+  color: #5c2d91;
+}
+
+.step.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background-color: #5c2d91;
+  right: 0;
+}
+
+.circle {
+  background-color: #d1bedc;
+  color: white;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.step.active .circle {
+  background-color: #5c2d91;
+}
+
+.form-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-content h2 {
+  margin-bottom: 5px;
+  font-size: 22px;
+}
+
+.form-content p {
+  color: #777;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+input, select, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.next-btn {
+  background-color: #5c2d91;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .step-indicator {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

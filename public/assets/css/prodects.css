@@ -1,0 +1,265 @@
+/* Template Section Styles */
+body {
+  font-family: 'Almarai', sans-serif;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+}
+
+.template-section {
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.template-section h2 {
+  color: #222;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.template-section p {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #8174A0 #f1f1f1;
+  -webkit-overflow-scrolling: touch;
+}
+
+.filter-buttons::-webkit-scrollbar {
+  height: 6px;
+}
+
+.filter-buttons::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.filter-buttons::-webkit-scrollbar-thumb {
+  background-color: #8174A0;
+  border-radius: 10px;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  border: 2px solid #ccc;
+  background-color: #fff;
+  border-radius: 25px;
+  cursor: pointer;
+  color: #555;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.filter-btn:hover {
+  border-color: #441752;
+  color: #441752;
+}
+
+.filter-btn.active {
+  background-color: #441752;
+  color: white;
+  border-color: #441752;
+}
+
+.template-container {
+  display: flex;
+  gap: 24px;
+  padding-bottom: 20px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #8174A0 #f1f1f1;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.template-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.template-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.template-container::-webkit-scrollbar-thumb {
+  background-color: #8174A0;
+  border-radius: 10px;
+}
+
+.template-card {
+  width: 260px;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+  transition: transform 0.3s ease;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+.template-card:hover {
+  transform: scale(1.03);
+}
+
+.template-card img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+  border: none;
+}
+
+.template-preview-images {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.template-preview-images img {
+  width: 250px;
+  height: 240px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.template-card h3 {
+  display: none;
+}
+
+.template-card button {
+  background: linear-gradient(to right, #441752, #6e2b83);
+  color: white;
+  padding: 12px 0;
+  border: none;
+  width: 90%;
+  margin-top: 16px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 8px rgba(68, 23, 82, 0.2);
+}
+
+.template-card button:hover {
+  background: #441752;
+  box-shadow: 0 6px 12px rgba(68, 23, 82, 0.3);
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .template-section {
+    padding: 40px 15px;
+  }
+}
+
+@media (max-width: 992px) {
+  .template-section h2 {
+    font-size: 26px;
+  }
+  
+  .template-card {
+    width: 240px;
+  }
+  
+  .template-card img {
+    height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .template-section {
+    padding: 30px 15px;
+  }
+  
+  .template-section h2 {
+    font-size: 24px;
+  }
+  
+  .template-section p {
+    font-size: 15px;
+  }
+  
+  .filter-buttons {
+    justify-content: flex-start;
+    margin-bottom: 25px;
+  }
+  
+  .template-container {
+    justify-content: flex-start;
+  }
+  
+  .template-card {
+    width: 220px;
+  }
+  
+  .template-card img {
+    height: 400px;
+  }
+}
+
+@media (max-width: 576px) {
+  .template-section {
+    padding: 25px 10px;
+  }
+  
+  .template-section h2 {
+    font-size: 22px;
+  }
+  
+  .template-card {
+    width: 200px;
+  }
+  
+  .template-card img {
+    height: 350px;
+  }
+  
+  .template-preview-images {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .template-preview-images img {
+    width: 90%;
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .template-section h2 {
+    font-size: 20px;
+  }
+  
+  .template-card {
+    width: 180px;
+  }
+  
+  .template-card img {
+    height: 300px;
+  }
+  
+  .template-card button {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+}

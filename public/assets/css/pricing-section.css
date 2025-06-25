@@ -1,0 +1,162 @@
+
+
+
+.pricing-section {
+  text-align: center;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.plans {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.plan {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 35px 25px;
+  width: 320px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plan:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.plan.best {
+  background-color: #6c4f9c;
+  color: white;
+}
+
+.plan .label {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background-color: var(--price-color);
+  padding: 6px 12px;
+  border-radius: 50px;
+  font-size: 13px;
+  color: #444;
+  font-weight: bold;
+}
+
+.plan.best .label {
+  background-color: #513a75;
+  color: #fff;
+}
+
+.plan h3 {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.price {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 15px 0 5px;
+}
+
+.price span {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.yearly {
+  font-size: 14px;
+  color: #bbb;
+  
+}
+
+.plan.best .yearly {
+  color: #e3e3e3;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 25px 0;
+  text-align: right;
+}
+
+.features li {
+  margin-bottom: 12px;
+  font-size: 15px;
+  position: relative;
+  padding-right: 25px;
+}
+
+.features li::before {
+  content: "✔";
+  position: absolute;
+  right: 0;
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.features li.disabled {
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+.features li.disabled::before {
+  content: "✖";
+  color: #e74c3c;
+}
+
+.btn {
+  background-color: #3b1e74;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #2e1558;
+}
+
+.plan.best .btn {
+  background-color: white;
+  color: #3b1e74;
+}
+
+.plan.best .btn:hover {
+  background-color: #f0f0f0;
+}
+
+/* ✅ تحسين المظهر على الشاشات الصغيرة */
+@media (max-width: 768px) {
+  .plans {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .plan {
+    width: 90%;
+  }
+}

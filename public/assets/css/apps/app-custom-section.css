@@ -1,0 +1,188 @@
+/* التنسيق العام */
+.app-custom-section {
+    padding: 80px 0;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.app-section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 0 30px;
+}
+
+/* قسم المحتوى */
+.app-content-container {
+    flex: 1;
+    text-align: right;
+    direction: rtl;
+}
+
+.app-section-title {
+    color: #2c3e50;
+    font-size: 32px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.app-section-title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 0;
+    width: 80px;
+    height: 3px;
+    background: #8174A0;
+    border-radius: 3px;
+}
+
+.app-section-description {
+    color: #4a5568;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.app-submit-btn {
+    background-color: #441752;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.app-submit-btn:hover {
+    background-color: #6b5f84;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(129, 116, 160, 0.3);
+}
+
+/* قسم الصور */
+.app-images-container {
+    flex: 1;
+    position: relative;
+    min-height: 400px;
+}
+
+.app-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.app-main-image {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 12px;
+    z-index: 2;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.app-play-icon {
+    position: absolute;
+    top: 220px;
+    left: 61%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background-color: rgba(129, 116, 160, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 3;
+}
+
+.app-play-icon i {
+    color: white;
+    font-size: 28px;
+    margin-left: 5px;
+}
+
+.app-play-icon:hover {
+    background-color: rgba(129, 116, 160, 1);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.app-small-image {
+    position: absolute;
+    width: 120%;
+    height: auto;
+    top: 150px;
+    right: 10px;
+    z-index: 1;
+}
+
+/* التكيف مع الشاشات الصغيرة */
+@media (max-width: 992px) {
+    .app-play-icon {
+        top: 70%;
+        left: 50%;
+    }
+    
+    .app-section-container {
+        flex-direction: column-reverse;
+        gap: 40px;
+    }
+    
+    .app-images-container {
+        width: 100%;
+        min-height: 300px;
+    }
+    
+    .app-main-image {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        top: auto;
+    }
+    
+    .app-small-image {
+        width: 35%;
+        bottom: -30px;
+        left: 20px;
+        top: auto;
+    }
+    
+    .app-content-container {
+        text-align: center;
+    }
+    
+    .app-section-title:after {
+        right: 50%;
+        transform: translateX(50%);
+    }
+}
+
+@media (max-width: 576px) {
+    .app-custom-section {
+        padding: 60px 0;
+    }
+    
+    .app-section-title {
+        font-size: 28px;
+    }
+    
+    .app-section-title:after {
+        width: 60px;
+        bottom: -8px;
+    }
+    
+    .app-small-image {
+        width: 45%;
+        bottom: -20px;
+    }
+}

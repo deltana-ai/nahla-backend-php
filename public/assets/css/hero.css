@@ -1,0 +1,180 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80vh;
+  padding: 40px;
+  overflow: hidden;
+  direction: rtl;
+  background-color: white;
+}
+
+/* الخلفية */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* المحتوى */
+.hero-content,
+.hero-image {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+.hero-content {
+  color: white;
+  font-size: 58px;
+  font-weight: 400;
+  padding: 20px;
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.hero-content p {
+  font-size: 20px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #441752;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  background-color: #5a1e6c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* صورة الديسك */
+.hero-image {
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Large Devices (Less than 1200px) */
+@media (max-width: 1199.98px) {
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+  }
+}
+
+/* Medium Devices (Tablets, Less than 992px) */
+@media (max-width: 991.98px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 60px 30px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    padding: 30px 0;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+  }
+
+  .hero-content p {
+    font-size: 17px;
+  }
+
+  .hero-image {
+    margin-bottom: 30px;
+  }
+
+  .hero-image img {
+    max-width: 80%;
+  }
+}
+
+/* Small Devices (Phones, Less than 768px) */
+@media (max-width: 767.98px) {
+  .hero {
+    padding: 50px 25px;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .btn {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .hero-image img {
+    max-width: 85%;
+  }
+}
+
+/* Extra Small Devices (Less than 576px) */
+@media (max-width: 575.98px) {
+  .hero{
+    background-color: #8174A0;
+  }  
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-content p {
+    font-size: 25px;
+  }
+
+  .hero-bg {
+    object-position: center top;
+  }
+}
+
+/* Very Small Devices (Less than 400px) */
+@media (max-width: 399.98px) {
+  .hero-content h1 {
+    font-size: 24px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,152 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Tajawal', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  direction: ltr;
+  background-color: #f9f9f9;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+.image-section {
+  flex: 1;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.image-section img {
+  max-width: 90%;
+  height: auto;
+}
+
+.login-section {
+  flex: 1;
+  padding: 40px;
+  background-color: #f3e8ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-section h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #333;
+}
+
+.login-section p {
+  margin-bottom: 20px;
+  color: #666;
+}
+
+form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #5c2d91;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #4b2475;
+}
+
+.divider {
+  text-align: center;
+  margin: 20px 0;
+  position: relative;
+}
+
+.divider span {
+  background: #f3e8ff;
+  padding: 0 10px;
+  color: #888;
+  z-index: 2;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: #ddd;
+}
+
+.divider::before {
+  right: 0;
+}
+
+.divider::after {
+  left: 0;
+}
+
+.google-login {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.google-login img {
+  width: 20px;
+  height: 20px;
+}
+
+.signup-link {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.signup-link a {
+  color: #5c2d91;
+  text-decoration: none;
+}
+
+/* ✅ استجابة كاملة على الجوال */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column-reverse;
+  }
+
+  .image-section {
+    padding: 20px 10px;
+  }
+
+  .login-section {
+    padding: 30px 20px;
+  }
+}
