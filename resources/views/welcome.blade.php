@@ -119,6 +119,13 @@
         </section>
         <!-- قسم لماذا نحله -->
 
+
+        @php
+            use App\Models\Category;
+
+            $categories = Category::with('webs')->get();
+
+        @endphp
         <!-- قسم المنتجات -->
         <section class="prodects">
             <div class="template-section">
@@ -126,22 +133,31 @@
                 <p>نقدم لك مجموعة من القوالب المصممة خصيصًا لتلبية احتياجاتك في إنشاء متجرك الإلكتروني</p>
 
                 <div class="filter-buttons">
-                    <button class="filter-btn " data-category="all">الكل</button>
-                    <button class="filter-btn active" data-category="مطاعم">مطاعم</button>
-                    <button class="filter-btn" data-category="ملابس">ملابس</button>
-                    <button class="filter-btn" data-category="مطاعم">مطاعم</button>
-                    <button class="filter-btn" data-category="ملابس">ملابس</button>
-                    <button class="filter-btn" data-category="مطاعم">مطاعم</button>
-                    <button class="filter-btn" data-category="ملابس">ملابس</button>
-                    <button class="filter-btn" data-category="مطاعم">مطاعم</button>
-                    <button class="filter-btn" data-category="ملابس">ملابس</button>
-                    <button class="filter-btn" data-category="مطاعم">مطاعم</button>
-                    <button class="filter-btn" data-category="ملابس">ملابس</button>
+                    <button class="filter-btn active" data-category="all">الكل</button>
+                    @foreach ($categories as $category)
+                        <button class="filter-btn" data-category="{{ $category->id }}">{{ $category->name }}</button>
+                    @endforeach
                 </div>
 
-                <div id="template-container" class="template-container"></div>
+                <div id="template-container" class="template-container">
+                    @foreach ($categories as $category)
+                        @foreach ($category->webs as $web)
+                            <div class="template-card" data-category="{{ $category->id }}">
+                                <a href="{{ $web->domin }}">
+                                    <img src="{{ asset('storage/' . $web->image) }}" alt="{{ $web->name }}">
+                                </a>
+                                <p>{{ $web->domain }}</p>
+                                <a href="{{ route('cart.show', $web->id) }}">
+                                    اشترك الان
+                                </a>
+
+                            </div>
+                        @endforeach
+                    @endforeach
+                </div>
             </div>
         </section>
+
         <!-- قسم المنتجات -->
 
 
@@ -253,6 +269,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" defer></script>
     <script>
         window.isLoggedIn = {{ auth()->check() ? 'true' : 'false' }};
+    </script>
+    <script>
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const categoryId = this.dataset.category;
+
+                // إزالة active من الكل
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+                document.querySelectorAll('.template-card').forEach(card => {
+                    if (categoryId === 'all' || card.dataset.category === categoryId) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
     </script>
 
 </body>

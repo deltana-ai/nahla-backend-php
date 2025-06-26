@@ -1,0 +1,288 @@
+    body {
+      font-family: 'Tajawal', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      direction: rtl;
+    }
+
+
+       
+        
+        .circle {
+            width: 120px;
+            height: 120px;
+            border: 4px dashed #5c2d91; /* دائرة مشرشرة (متقطعة) */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+        
+        .checkmark {
+            color: #5c2d91;
+            font-size: 60px;
+            font-weight: bold;
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #555;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        .start-button {
+            background-color: #5c2d91;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            font-size: 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .start-button:hover {
+            background-color: #5c2d91;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    .wizard {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .custom-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #fff;
+  margin-bottom: 15px;
+}
+
+  
+
+    .steps {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+      gap: 20px;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      color: #aaa;
+    }
+
+    .step.active {
+      color: #4a266a;
+      font-weight: bold;
+    }
+
+    .step .circle {
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      border-radius: 50%;
+      background-color: #eee;
+      color: #4a266a;
+      margin-bottom: 5px;
+    }
+
+    .step.active .circle {
+      background-color: #4a266a;
+      color: white;
+    }
+
+    .content {
+      display: none;
+      padding: 20px;
+      background: white;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .content.active {
+      display: block;
+    }
+
+    .btn {
+      margin-top: 20px;
+      background-color: #4a266a;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+
+
+.box-section {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff;
+  flex: 1;
+  min-width: 250px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  transition: border-color 0.3s, background-color 0.3s;
+  cursor: pointer;
+}
+
+.radio-option input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #4a266a;
+  border-radius: 50%;
+  position: relative;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.radio-option input[type="radio"]:checked::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 10px;
+  height: 10px;
+  background-color: #4a266a;
+  border-radius: 50%;
+}
+
+.radio-option:hover {
+  border-color: #4a266a;
+  background-color: #f9f3ff;
+}
+
+
+.payment-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  font-family: 'Tajawal', sans-serif;
+}
+
+.payment-box label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.payment-box input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.upload-area {
+  border: 2px dashed #5c2d91;
+  border-radius: 10px;
+  padding: 20px;
+  color: #777;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+  background-color: #f9f3ff;
+  border-color: #4a266a;
+}
+
+.upload-btn {
+  margin-top: 15px;
+  padding: 12px 24px;
+  background-color: #5c2d91;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.upload-btn:hover {
+  background-color: #4a266a;
+}
+
+
+.cart-summary {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  font-family: 'Tajawal', sans-serif;
+  max-width: 300px;
+  margin: auto;
+}
+
+.cart-summary h3 {
+  text-align: right;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #222;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+}
+
+.item-label {
+  color: #333;
+  font-size: 15px;
+}
+
+.item-price {
+  color: #000;
+  font-weight: bold;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  padding-top: 10px;
+  color: #000;
+}

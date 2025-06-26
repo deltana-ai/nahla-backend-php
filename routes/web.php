@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
@@ -47,6 +48,10 @@ Route::get('/vip', function () {
 
 
 
+Route::get('/cart', function () {
+    return view('pages.cart');
+});
+
 Route::resource('vip', VipRequestController::class);
 Route::resource('contact', ContactMessageController::class);
 
@@ -59,6 +64,9 @@ Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
 
 
+Route::get('/cart/{web}', [CartController::class, 'show'])->name('cart.show');
+Route::post('/cart/store', [CartController::class, 'store'])->name('cart.store')->middleware('auth');
+Route::put('/profile/update', [UserController::class, 'update'])->name('profile.update')->middleware('auth');
 
 Route::middleware('auth')->get('/profile', function () {
     return view('auth.profile');

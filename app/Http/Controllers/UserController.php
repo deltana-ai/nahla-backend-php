@@ -64,4 +64,32 @@ class UserController extends Controller
         Auth::logout();
         return redirect()->route('home');
     }
+
+
+    public function update(Request $request)
+    {
+        $user = Auth::user();
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users,email,' . $user->id,
+            'alt_email' => 'nullable|email|max:255',
+            'company_name' => 'nullable|string|max:255',
+            'phone' => 'nullable|string|max:20',
+            'store_language' => 'nullable|string|max:50',
+            'store_address' => 'nullable|string|max:255',
+        ]);
+
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'alt_email' => $request->alt_email,
+            'company_name' => $request->company_name,
+            'phone' => $request->phone,
+            'store_language' => $request->store_language,
+            'store_address' => $request->store_address,
+        ]);
+
+        return back()->with('success', 'تم تحديث المعلومات بنجاح.');
+    }
 }

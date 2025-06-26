@@ -56,10 +56,21 @@
                 </form>
             </div>
 
-            <form class="profile-form" method="POST">
+            <form class="profile-form" method="POST" action="{{ route('profile.update') }}">
                 @csrf
                 @method('PUT')
-
+                @if (session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="form-groub">
                     <div class="profile-wrapper">
                         <img src="{{ auth()->user()->avatar ? asset('storage/' . auth()->user()->avatar) : asset('assets/images/profile.jpg') }}"
@@ -119,7 +130,82 @@
                     <button type="submit" class="logout-btn">تسجيل الخروج</button>
                 </form>
             </div>
-            <p>سيتم عرض الطلبات هنا لاحقاً.</p>
+
+            @php
+                $orders = auth()
+                    ->user()
+                    ->orders()
+                    ->with(['plan', 'app'])
+                    ->latest()
+                    ->get();
+            @endphp
+
+            @if ($orders->isEmpty())
+                <p>لا يوجد طلبات حتى الآن.</p>
+            @else
+                <div style="overflow-x: auto;">
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>الباقه</th>
+                                <th>المتجر</th>
+                                <th>موبيل</th>
+                                <th>الاشتراك</th>
+                                <th>التاريخ</th>
+                                <th>الوقت</th>
+                                <th>الاجمالي</th>
+                                <th>الحالة</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($orders as $order)
+                                <tr>
+                                    <td>{{ $order->plan?->title ?? '-' }}</td>
+                                    <td>{{ $order->web?->name ?? '-' }}</td>
+                                    <td>{{ $order->app?->name ?? '-' }}</td>
+                                    <td>
+                                        @if ($order->subscription_years)
+                                            @switch($order->subscription_years)
+                                                @case(1)
+                                                    عام
+                                                @break
+
+                                                @case(2)
+                                                    عامين
+                                                @break
+
+                                                @default
+                                                    {{ $order->subscription_years }} أعوام
+                                            @endswitch
+                                        @else
+                                            -
+                                        @endif
+                                    </td>
+
+                                    <td>{{ $order->created_at->format('Y-m-d') }}</td>
+                                    <td>{{ $order->created_at->format('g:i a') }}</td>
+                                    <td>{{ number_format($order->total_price, 2) }}$</td>
+                                    <td>
+                                        @php
+                                            // مثال: يمكنك تعديل الحالة حسب جدولك أو منطقك
+                                            $status = $order->status ?? 'completed';
+                                        @endphp
+                                        @if ($status == 'completed')
+                                            <span class="status-completed">مكتمل</span>
+                                        @elseif($status == 'pending')
+                                            <span class="status-pending">الانتظار</span>
+                                        @elseif($status == 'cancelled')
+                                            <span class="status-cancelled">ملغي</span>
+                                        @else
+                                            <span>{{ $status }}</span>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            @endif
         </section>
 
 

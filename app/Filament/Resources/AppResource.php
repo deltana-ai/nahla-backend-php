@@ -26,8 +26,8 @@ class AppResource extends Resource
     {
         return $form
             ->schema([
-                Select::make('web_id')
-                    ->relationship('web', 'name')
+                Select::make('category_id')
+                    ->relationship('category', 'name')
                     ->required()
                     ->label('الموقع'),
                 TextInput::make('name')->required()->label('اسم التطبيق'),
@@ -35,6 +35,11 @@ class AppResource extends Resource
                     ->disk('public')
                     ->directory('apps')
                     ->image(),
+                TextInput::make('price')
+                    ->numeric()
+                    ->label('السعر')
+                    ->required(),
+
             ]);
     }
 
@@ -42,9 +47,11 @@ class AppResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('web.name')->label('الموقع'),
+                Tables\Columns\TextColumn::make('category.name')->label('الموقع'),
                 Tables\Columns\TextColumn::make('name')->label('اسم التطبيق'),
                 Tables\Columns\ImageColumn::make('image')->disk('public')->label('صورة'),
+                Tables\Columns\TextColumn::make('price')->label('السعر'),
+
             ])
             ->filters([
                 //

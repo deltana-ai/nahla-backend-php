@@ -15,11 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="nav-left">
           ${loginButton}
           ${profileLink}
-          <a href="/cart">
-            <i class="fas fa-bag-shopping icon">
-              <span class="cart-count">3</span>
-            </i>
-          </a>
+          
         </div>
 
         <nav class="nav-links">
