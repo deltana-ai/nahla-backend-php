@@ -117,6 +117,16 @@
                     <label> العنوان</label>
                     <input type="text" name="store_address" value="{{ auth()->user()->store_address }}">
                 </div>
+                <div class="form-group">
+                    <label>كلمة المرور الجديدة (اختياري)</label>
+                    <input type="password" name="password" placeholder="اتركه فارغاً إذا لا تريد تغييره">
+                </div>
+
+                <div class="form-group">
+                    <label>تأكيد كلمة المرور</label>
+                    <input type="password" name="password_confirmation" placeholder="أعد إدخال كلمة المرور">
+                </div>
+
                 <button type="submit" class="update-btn">تحديث</button>
             </form>
         </section>

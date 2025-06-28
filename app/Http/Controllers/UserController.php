@@ -26,9 +26,10 @@ class UserController extends Controller
             'alt_email' => 'nullable|email',
             'store_language' => 'required|string',
             'store_description' => 'nullable|string',
+            'password' => 'required|string|min:6',
         ]);
 
-        $data['password'] = Hash::make('default123'); // أو خلي المستخدم يدخلها لاحقاً
+        $data['password'] = Hash::make($request->password);
 
         User::create($data);
 
@@ -44,11 +45,14 @@ class UserController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'phone' => 'required|string',
+            'login' => 'required|string',
             'password' => 'required|string',
         ]);
 
-        $user = User::where('phone', $credentials['phone'])->first();
+        $user = User::where('phone', $credentials['login'])
+            ->orWhere('email', $credentials['login'])
+            ->first();
+
 
         if (!$user || !Hash::check($credentials['password'], $user->password)) {
             return back()->withErrors(['phone' => 'بيانات الدخول غير صحيحة'])->withInput();
@@ -66,6 +70,7 @@ class UserController extends Controller
     }
 
 
+
     public function update(Request $request)
     {
         $user = Auth::user();
@@ -78,17 +83,24 @@ class UserController extends Controller
             'phone' => 'nullable|string|max:20',
             'store_language' => 'nullable|string|max:50',
             'store_address' => 'nullable|string|max:255',
+            'password' => 'nullable|string|min:6|confirmed', // تأكيد كلمة المرور
         ]);
 
-        $user->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'alt_email' => $request->alt_email,
-            'company_name' => $request->company_name,
-            'phone' => $request->phone,
-            'store_language' => $request->store_language,
-            'store_address' => $request->store_address,
+        $data = $request->only([
+            'name',
+            'email',
+            'alt_email',
+            'company_name',
+            'phone',
+            'store_language',
+            'store_address',
         ]);
+
+        if ($request->filled('password')) {
+            $data['password'] = Hash::make($request->password);
+        }
+
+        $user->update($data);
 
         return back()->with('success', 'تم تحديث المعلومات بنجاح.');
     }

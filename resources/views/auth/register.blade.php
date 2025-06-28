@@ -57,6 +57,8 @@
                     <input type="text" name="name" placeholder="ادخل الاسم هنا" required />
                     <input type="email" name="email" placeholder="ادخل البريد الالكتروني هنا" required />
                     <input type="text" name="phone" placeholder="ادخل رقم الهاتف هنا" required />
+                    <input type="password" name="password" placeholder="ادخل كلمة المرور" required />
+
                     <button type="button" onclick="showStep(2)" class="next-btn">التالي</button>
                 </div>
 
@@ -64,11 +66,8 @@
                 <div id="step2" class="form-content hidden">
                     <h2>بيانات المتجر</h2>
                     <p>الرجاء إدخال بيانات متجرك لإكمال إنشاء حسابك</p>
-                    <select name="company_name" required>
-                        <option disabled selected>اختر اسم المنشأة هنا</option>
-                        <option value="منشأة 1">منشأة 1</option>
-                        <option value="منشأة 2">منشأة 2</option>
-                    </select>
+
+                    <input type="text" name="company_name" placeholder="اختر اسم المنشأة هنا" required />
                     <input type="text" name="store_address" placeholder="ادخل عنوانك هنا" required />
                     <input type="text" name="store_domain" placeholder="ادخل دومين المتجر هنا" required />
                     <button type="button" onclick="showStep(3)" class="next-btn">التالي</button>
